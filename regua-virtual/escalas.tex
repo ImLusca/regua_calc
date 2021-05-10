@@ -1,0 +1,749 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% escalas.tex: arquivo onde estão programadas as escalas.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% definidos os comandos \escalaC, \escalaD, \escalaLL, escalaMM
+% todas com regua na posição vertical 0cm.
+
+
+\newcommand\inteiros{0.5}
+\newcommand\meios{0.35}
+\newcommand\decimos{0.27}
+\newcommand\meiodecimos{0.23}
+\newcommand\doiscentesimos{0.18}
+\newcommand\centesimos{0.14}
+% usado só nas escalas LL
+\newcommand\unidades{.5}
+\newcommand\multiplosdecinco{.5}
+\newcommand\dezenas{.5}
+
+
+\newcommand{\escalaLog}{% escala logaritmica
+  \draw[azul] (178.3199pt,0) -- ++(0,.6);
+  \node[azul] at (178.3199pt,.75) {\scriptsize $\sqrt5$};
+  \draw[azul] (121.7223pt,0) -- ++(0,.6);
+  \node[azul] at (121.7223pt,.75) {\scriptsize $\sqrt3$};
+  \draw[azul] (76.7982pt,0) -- ++(0,.6);
+  \node[azul] at (76.7982pt,.75) {\scriptsize $\sqrt2$};
+  \draw[very thin,azul] (306.0821pt,0) -- ++(0,\doiscentesimos);
+  \draw[very thin,azul] (304.9657pt,0) -- ++(0,\doiscentesimos);
+  \draw[very thin,azul] (303.8437pt,0) -- ++(0,\doiscentesimos);
+  \draw[very thin,azul] (302.7160pt,0) -- ++(0,\doiscentesimos);
+  \draw[very thin,azul] (300.4433pt,0) -- ++(0,\doiscentesimos);
+  \draw[very thin,azul] (299.2981pt,0) -- ++(0,\doiscentesimos);
+  \draw[very thin,azul] (298.1470pt,0) -- ++(0,\doiscentesimos);
+  \draw[very thin,azul] (296.9898pt,0) -- ++(0,\doiscentesimos);
+  \draw[very thin,azul] (294.6572pt,0) -- ++(0,\doiscentesimos);
+  \draw[very thin,azul] (293.4817pt,0) -- ++(0,\doiscentesimos);
+  \draw[very thin,azul] (292.2998pt,0) -- ++(0,\doiscentesimos);
+  \draw[very thin,azul] (291.1117pt,0) -- ++(0,\doiscentesimos);
+  \draw[very thin,azul] (288.7161pt,0) -- ++(0,\doiscentesimos);
+  \draw[very thin,azul] (287.5085pt,0) -- ++(0,\doiscentesimos);
+  \draw[very thin,azul] (286.2942pt,0) -- ++(0,\doiscentesimos);
+  \draw[very thin,azul] (285.0733pt,0) -- ++(0,\doiscentesimos);
+  \draw[very thin,azul] (282.6112pt,0) -- ++(0,\doiscentesimos);
+  \draw[very thin,azul] (281.3698pt,0) -- ++(0,\doiscentesimos);
+  \draw[very thin,azul] (280.1213pt,0) -- ++(0,\doiscentesimos);
+  \draw[very thin,azul] (278.8659pt,0) -- ++(0,\doiscentesimos);
+  \draw[very thin,azul] (276.3333pt,0) -- ++(0,\doiscentesimos);
+  \draw[very thin,azul] (275.0562pt,0) -- ++(0,\doiscentesimos);
+  \draw[very thin,azul] (273.7716pt,0) -- ++(0,\doiscentesimos);
+  \draw[very thin,azul] (272.4795pt,0) -- ++(0,\doiscentesimos);
+  \draw[very thin,azul] (269.8725pt,0) -- ++(0,\doiscentesimos);
+  \draw[very thin,azul] (268.5574pt,0) -- ++(0,\doiscentesimos);
+  \draw[very thin,azul] (267.2344pt,0) -- ++(0,\doiscentesimos);
+  \draw[very thin,azul] (265.9035pt,0) -- ++(0,\doiscentesimos);
+  \draw[very thin,azul] (263.2175pt,0) -- ++(0,\doiscentesimos);
+  \draw[very thin,azul] (261.8622pt,0) -- ++(0,\doiscentesimos);
+  \draw[very thin,azul] (260.4986pt,0) -- ++(0,\doiscentesimos);
+  \draw[very thin,azul] (259.1265pt,0) -- ++(0,\doiscentesimos);
+  \draw[very thin,azul] (256.3565pt,0) -- ++(0,\doiscentesimos);
+  \draw[very thin,azul] (254.9584pt,0) -- ++(0,\doiscentesimos);
+  \draw[very thin,azul] (253.5515pt,0) -- ++(0,\doiscentesimos);
+  \draw[very thin,azul] (252.1356pt,0) -- ++(0,\doiscentesimos);
+  \draw[very thin,azul] (249.2763pt,0) -- ++(0,\doiscentesimos);
+  \draw[very thin,azul] (247.8327pt,0) -- ++(0,\doiscentesimos);
+  \draw[very thin,azul] (246.3796pt,0) -- ++(0,\doiscentesimos);
+  \draw[very thin,azul] (244.9169pt,0) -- ++(0,\doiscentesimos);
+  \draw[very thin,azul] (241.9623pt,0) -- ++(0,\doiscentesimos);
+  \draw[very thin,azul] (240.4701pt,0) -- ++(0,\doiscentesimos);
+  \draw[very thin,azul] (238.9678pt,0) -- ++(0,\doiscentesimos);
+  \draw[very thin,azul] (237.4552pt,0) -- ++(0,\doiscentesimos);
+  \draw[very thin,azul] (234.3987pt,0) -- ++(0,\doiscentesimos);
+  \draw[very thin,azul] (232.8545pt,0) -- ++(0,\doiscentesimos);
+  \draw[very thin,azul] (231.2994pt,0) -- ++(0,\doiscentesimos);
+  \draw[very thin,azul] (229.7334pt,0) -- ++(0,\doiscentesimos);
+  \draw[very thin,azul] (226.5677pt,0) -- ++(0,\doiscentesimos);
+  \draw[very thin,azul] (224.9678pt,0) -- ++(0,\doiscentesimos);
+  \draw[very thin,azul] (223.3562pt,0) -- ++(0,\doiscentesimos);
+  \draw[very thin,azul] (221.7328pt,0) -- ++(0,\doiscentesimos);
+  \draw[very thin,azul] (218.4499pt,0) -- ++(0,\doiscentesimos);
+  \draw[very thin,azul] (216.7900pt,0) -- ++(0,\doiscentesimos);
+  \draw[very thin,azul] (215.1176pt,0) -- ++(0,\doiscentesimos);
+  \draw[very thin,azul] (213.4325pt,0) -- ++(0,\doiscentesimos);
+  \draw[very thin,azul] (210.0233pt,0) -- ++(0,\doiscentesimos);
+  \draw[very thin,azul] (208.2988pt,0) -- ++(0,\doiscentesimos);
+  \draw[very thin,azul] (206.5608pt,0) -- ++(0,\doiscentesimos);
+  \draw[very thin,azul] (204.8091pt,0) -- ++(0,\doiscentesimos);
+  \draw[very thin,azul] (201.2635pt,0) -- ++(0,\doiscentesimos);
+  \draw[very thin,azul] (199.4693pt,0) -- ++(0,\doiscentesimos);
+  \draw[very thin,azul] (197.6603pt,0) -- ++(0,\doiscentesimos);
+  \draw[very thin,azul] (195.8365pt,0) -- ++(0,\doiscentesimos);
+  \draw[very thin,azul] (192.1432pt,0) -- ++(0,\doiscentesimos);
+  \draw[very thin,azul] (190.2732pt,0) -- ++(0,\doiscentesimos);
+  \draw[very thin,azul] (188.3873pt,0) -- ++(0,\doiscentesimos);
+  \draw[very thin,azul] (186.4852pt,0) -- ++(0,\doiscentesimos);
+  \draw[very thin,azul] (182.6313pt,0) -- ++(0,\doiscentesimos);
+  \draw[very thin,azul] (180.6790pt,0) -- ++(0,\doiscentesimos);
+  \draw[very thin,azul] (178.7092pt,0) -- ++(0,\doiscentesimos);
+  \draw[very thin,azul] (176.7218pt,0) -- ++(0,\doiscentesimos);
+  \draw[very thin,azul] (172.6928pt,0) -- ++(0,\doiscentesimos);
+  \draw[very thin,azul] (170.6504pt,0) -- ++(0,\doiscentesimos);
+  \draw[very thin,azul] (168.5891pt,0) -- ++(0,\doiscentesimos);
+  \draw[very thin,azul] (166.5084pt,0) -- ++(0,\doiscentesimos);
+  \draw[very thin,azul] (162.2874pt,0) -- ++(0,\doiscentesimos);
+  \draw[very thin,azul] (160.1464pt,0) -- ++(0,\doiscentesimos);
+  \draw[very thin,azul] (157.9845pt,0) -- ++(0,\doiscentesimos);
+  \draw[very thin,azul] (155.8013pt,0) -- ++(0,\doiscentesimos);
+  \draw[very thin,azul] (152.4857pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (151.3693pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (150.2473pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (149.1196pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (147.9862pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (146.8469pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (145.7017pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (144.5505pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (143.3934pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (141.0608pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (139.8853pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (138.7034pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (137.5153pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (136.3207pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (135.1196pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (133.9121pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (132.6978pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (131.4769pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (129.0148pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (127.7734pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (126.5249pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (125.2695pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (124.0068pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (122.7369pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (121.4597pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (120.1751pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (118.8831pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (116.2761pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (114.9610pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (113.6380pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (112.3071pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (110.9682pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (109.6211pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (108.2658pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (106.9021pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (105.5301pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (102.7601pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (101.3620pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (99.9551pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (98.5392pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (97.1141pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (95.6799pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (94.2363pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (92.7832pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (91.3205pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (88.3659pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (86.8737pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (85.3714pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (83.8588pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (82.3358pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (80.8023pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (79.2581pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (77.7030pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (76.1370pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (72.9713pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (71.3714pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (69.7598pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (68.1364pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (66.5010pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (64.8535pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (63.1936pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (61.5212pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (59.8361pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (56.4269pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (54.7024pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (52.9644pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (51.2127pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (49.4470pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (47.6671pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (45.8728pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (44.0639pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (42.2401pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (38.5468pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (36.6768pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (34.7909pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (32.8888pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (30.9702pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (29.0349pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (27.0825pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (25.1128pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (23.1254pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (19.0964pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (17.0540pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (14.9927pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (12.9120pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (10.8115pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (8.6910pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (6.5500pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (4.3881pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (2.2049pt,0) -- ++(0,\centesimos);
+  \draw[very thin] (508.0091pt,0) -- ++(0,\decimos);
+  \draw[very thin] (505.7594pt,0) -- ++(0,\decimos);
+  \draw[very thin] (503.4867pt,0) -- ++(0,\decimos);
+  \draw[very thin] (501.1904pt,0) -- ++(0,\decimos);
+  \draw[very thin] (496.5251pt,0) -- ++(0,\decimos);
+  \draw[very thin] (494.1551pt,0) -- ++(0,\decimos);
+  \draw[very thin] (491.7595pt,0) -- ++(0,\decimos);
+  \draw[very thin] (489.3377pt,0) -- ++(0,\decimos);
+  \draw[very thin] (484.4132pt,0) -- ++(0,\decimos);
+  \draw[very thin] (481.9093pt,0) -- ++(0,\decimos);
+  \draw[very thin] (479.3768pt,0) -- ++(0,\decimos);
+  \draw[very thin] (476.8150pt,0) -- ++(0,\decimos);
+  \draw[very thin] (471.6008pt,0) -- ++(0,\decimos);
+  \draw[very thin] (468.9469pt,0) -- ++(0,\decimos);
+  \draw[very thin] (466.2609pt,0) -- ++(0,\decimos);
+  \draw[very thin] (463.5420pt,0) -- ++(0,\decimos);
+  \draw[very thin] (458.0019pt,0) -- ++(0,\decimos);
+  \draw[very thin] (455.1790pt,0) -- ++(0,\decimos);
+  \draw[very thin] (452.3197pt,0) -- ++(0,\decimos);
+  \draw[very thin] (449.4230pt,0) -- ++(0,\decimos);
+  \draw[very thin] (443.5135pt,0) -- ++(0,\decimos);
+  \draw[very thin] (440.4986pt,0) -- ++(0,\decimos);
+  \draw[very thin] (437.4421pt,0) -- ++(0,\decimos);
+  \draw[very thin] (434.3428pt,0) -- ++(0,\decimos);
+  \draw[very thin] (428.0112pt,0) -- ++(0,\decimos);
+  \draw[very thin] (424.7762pt,0) -- ++(0,\decimos);
+  \draw[very thin] (421.4933pt,0) -- ++(0,\decimos);
+  \draw[very thin] (418.1610pt,0) -- ++(0,\decimos);
+  \draw[very thin] (411.3422pt,0) -- ++(0,\decimos);
+  \draw[very thin] (407.8525pt,0) -- ++(0,\decimos);
+  \draw[very thin] (404.3069pt,0) -- ++(0,\decimos);
+  \draw[very thin] (400.7037pt,0) -- ++(0,\decimos);
+  \draw[very thin] (393.3166pt,0) -- ++(0,\decimos);
+  \draw[very thin] (389.5286pt,0) -- ++(0,\decimos);
+  \draw[very thin] (385.6747pt,0) -- ++(0,\decimos);
+  \draw[very thin] (381.7526pt,0) -- ++(0,\decimos);
+  \draw[very thin] (373.6938pt,0) -- ++(0,\decimos);
+  \draw[very thin] (369.5518pt,0) -- ++(0,\decimos);
+  \draw[very thin] (365.3308pt,0) -- ++(0,\decimos);
+  \draw[very thin] (361.0279pt,0) -- ++(0,\decimos);
+  \draw[very thin] (352.1630pt,0) -- ++(0,\decimos);
+  \draw[very thin] (347.5940pt,0) -- ++(0,\decimos);
+  \draw[very thin] (342.9287pt,0) -- ++(0,\decimos);
+  \draw[very thin] (338.1631pt,0) -- ++(0,\decimos);
+  \draw[very thin] (328.3129pt,0) -- ++(0,\decimos);
+  \draw[very thin] (323.2186pt,0) -- ++(0,\decimos);
+  \draw[very thin] (318.0044pt,0) -- ++(0,\decimos);
+  \draw[very thin] (312.6645pt,0) -- ++(0,\decimos);
+  \draw[very thin] (301.5826pt,0) -- ++(0,\decimos);
+  \draw[very thin] (295.8266pt,0) -- ++(0,\decimos);
+  \draw[very thin] (289.9171pt,0) -- ++(0,\decimos);
+  \draw[very thin] (283.8457pt,0) -- ++(0,\decimos);
+  \draw[very thin] (271.1798pt,0) -- ++(0,\decimos);
+  \draw[very thin] (264.5646pt,0) -- ++(0,\decimos);
+  \draw[very thin] (257.7458pt,0) -- ++(0,\decimos);
+  \draw[very thin] (250.7105pt,0) -- ++(0,\decimos);
+  \draw[very thin] (235.9322pt,0) -- ++(0,\decimos);
+  \draw[very thin] (228.1562pt,0) -- ++(0,\decimos);
+  \draw[very thin] (220.0974pt,0) -- ++(0,\decimos);
+  \draw[very thin] (211.7344pt,0) -- ++(0,\decimos);
+  \draw[very thin] (193.9975pt,0) -- ++(0,\decimos);
+  \draw[very thin] (184.5666pt,0) -- ++(0,\decimos);
+  \draw[very thin] (174.7165pt,0) -- ++(0,\decimos);
+  \draw[very thin] (164.4080pt,0) -- ++(0,\decimos);
+  \draw[very thin] (142.2302pt,0) -- ++(0,\decimos);
+  \node at (142.2302pt,\decimos+0.15) {\scriptsize $1.9$};
+  \draw[very thin] (130.2493pt,0) -- ++(0,\decimos);
+  \node at (130.2493pt,\decimos+0.15) {\scriptsize $1.8$};
+  \draw[very thin] (117.5834pt,0) -- ++(0,\decimos);
+  \node at (117.5834pt,\decimos+0.15) {\scriptsize $1.7$};
+  \draw[very thin] (104.1494pt,0) -- ++(0,\decimos);
+  \node at (104.1494pt,\decimos+0.15) {\scriptsize $1.6$};
+  \draw[very thin] (89.8481pt,0) -- ++(0,\decimos);
+  \node at (89.8481pt,\decimos+0.15) {\scriptsize $1.5$};
+  \draw[very thin] (74.5598pt,0) -- ++(0,\decimos);
+  \node at (74.5598pt,\decimos+0.15) {\scriptsize $1.4$};
+  \draw[very thin] (58.1380pt,0) -- ++(0,\decimos);
+  \node at (58.1380pt,\decimos+0.15) {\scriptsize $1.3$};
+  \draw[very thin] (40.4011pt,0) -- ++(0,\decimos);
+  \node at (40.4011pt,\decimos+0.15) {\scriptsize $1.2$};
+  \draw[very thin] (21.1200pt,0) -- ++(0,\decimos);
+  \node at (21.1200pt,\decimos+0.15) {\scriptsize $1.1$};
+  \draw (498.8700pt,0) -- ++(0,\meios);
+  \node at (498.8700pt,\meios+0.15) {\scriptsize $9.5$};
+  \draw (474.2232pt,0) -- ++(0,\meios);
+  \node at (474.2232pt,\meios+0.15) {\scriptsize $8.5$};
+  \draw (446.4880pt,0) -- ++(0,\meios);
+  \node at (446.4880pt,\meios+0.15) {\scriptsize $7.5$};
+  \draw (414.7778pt,0) -- ++(0,\meios);
+  \node at (414.7778pt,\meios+0.15) {\scriptsize $6.5$};
+  \draw (377.7599pt,0) -- ++(0,\meios);
+  \node at (377.7599pt,\meios+0.15) {\scriptsize $5.5$};
+  \draw (333.2927pt,0) -- ++(0,\meios);
+  \node at (333.2927pt,\meios+0.15) {\scriptsize $4.5$};
+  \draw (277.6032pt,0) -- ++(0,\meios);
+  \node at (277.6032pt,\meios+0.15) {\scriptsize $3.5$};
+  \draw (203.0434pt,0) -- ++(0,\meios);
+  \node at (203.0434pt,\meios+0.15) {\scriptsize $2.5$};
+  \draw[thick] (510.2362pt,0) -- ++(0,\inteiros);
+  \node at (510.2362pt,\inteiros+0.2) {$1$};
+  \draw[thick] (486.8891pt,0) -- ++(0,\inteiros);
+  \node at (486.8891pt,\inteiros+0.2) {$9$};
+  \draw[thick] (460.7892pt,0) -- ++(0,\inteiros);
+  \node at (460.7892pt,\inteiros+0.2) {$8$};
+  \draw[thick] (431.1996pt,0) -- ++(0,\inteiros);
+  \node at (431.1996pt,\inteiros+0.2) {$7$};
+  \draw[thick] (397.0410pt,0) -- ++(0,\inteiros);
+  \node at (397.0410pt,\inteiros+0.2) {$6$};
+  \draw[thick] (356.6398pt,0) -- ++(0,\inteiros);
+  \node at (356.6398pt,\inteiros+0.2) {$5$};
+  \draw[thick] (307.1928pt,0) -- ++(0,\inteiros);
+  \node at (307.1928pt,\inteiros+0.2) {$4$};
+  \draw[thick] (243.4445pt,0) -- ++(0,\inteiros);
+  \node at (243.4445pt,\inteiros+0.2) {$3$};
+  \draw[thick] (153.5964pt,0) -- ++(0,\inteiros);
+  \node at (153.5964pt,\inteiros+0.2) {$2$};
+  \draw[thick] (0.0000pt,0) -- ++(0,\inteiros);
+  \node at (0.0000pt,\inteiros+0.2) {$1$};
+}
+
+\newcommand{\escalaC}{% escala logaritmica
+  % (0cm -> 18cm) <-> (ln 1 -> ln 10)
+  \escalaLog
+  % base e seta vermelha
+  \draw[thick,line cap=round] (510.2362pt,0) -- (0,0);
+  \draw[azul,thick,->] (510.2362pt,\inteiros) -- ++(0,-\inteiros);
+  \draw[vermelho,thick,->] (0,\inteiros) -- (0,0);    
+  \node[right] at (18.05,0.3) {$y$};
+  \node[left,vermelho] at (-0.6,0.3) {\large C};
+}
+
+\newcommand{\escalaD}{% escala logaritmica D
+  \begin{scope}[yscale=-1]
+    \escalaLog
+    % base
+    \draw[thick,line cap=round] (510.2362pt,0) -- (0,0);
+    \draw[thick] (510.2362pt,0) -- ++(0,\inteiros);
+    \draw[thick] (0,\inteiros) -- (0,0);    
+    \node[right] at (18.05,0.2) {$x$};
+    \node[right] at (18.05,0.5) {$xy$};
+    \node[left,vermelho] at (-0.6,0.3) {\large D};
+  \end{scope}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% escala log log de 1.4 a sqrt(2)^10=32
+% ln(ln(sqrt(2)))*19/ln(10) = -8.743886157758011
+% 19/ln(10) = 8.251595156161784
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+\newcommand{\escalaLogLog}{
+  \draw[azul] (234.8130pt,0) -- ++(0,.5);
+  \node[azul] at (234.8130pt,.65) {\footnotesize $e$};
+  \draw[azul] (186.6693pt,0) -- ++(0,.5);
+  \node[azul] at (186.6693pt,.65) {\scriptsize $\sqrt5$};
+  \draw[azul] (102.0569pt,0) -- ++(0,.5);
+  \node[azul] at (102.0569pt,.65) {\scriptsize $\sqrt3$};
+  \draw[azul] (-0.0000pt,0) -- ++(0,.5);
+  \node[azul] at (-0.0000pt,.65) {\scriptsize $\sqrt2$};
+  \draw[very thin,azul] (254.3000pt,0) -- ++(0,\doiscentesimos);
+  \draw[very thin,azul] (252.9292pt,0) -- ++(0,\doiscentesimos);
+  \draw[very thin,azul] (251.5405pt,0) -- ++(0,\doiscentesimos);
+  \draw[very thin,azul] (250.1334pt,0) -- ++(0,\doiscentesimos);
+  \draw[very thin,azul] (247.2626pt,0) -- ++(0,\doiscentesimos);
+  \draw[very thin,azul] (245.7979pt,0) -- ++(0,\doiscentesimos);
+  \draw[very thin,azul] (244.3131pt,0) -- ++(0,\doiscentesimos);
+  \draw[very thin,azul] (242.8077pt,0) -- ++(0,\doiscentesimos);
+  \draw[very thin,azul] (239.7330pt,0) -- ++(0,\doiscentesimos);
+  \draw[very thin,azul] (238.1626pt,0) -- ++(0,\doiscentesimos);
+  \draw[very thin,azul] (236.5695pt,0) -- ++(0,\doiscentesimos);
+  \draw[very thin,azul] (234.9530pt,0) -- ++(0,\doiscentesimos);
+  \draw[very thin,azul] (231.6476pt,0) -- ++(0,\doiscentesimos);
+  \draw[very thin,azul] (229.9574pt,0) -- ++(0,\doiscentesimos);
+  \draw[very thin,azul] (228.2414pt,0) -- ++(0,\doiscentesimos);
+  \draw[very thin,azul] (226.4987pt,0) -- ++(0,\doiscentesimos);
+  \draw[very thin,azul] (222.9306pt,0) -- ++(0,\doiscentesimos);
+  \draw[very thin,azul] (221.1036pt,0) -- ++(0,\doiscentesimos);
+  \draw[very thin,azul] (219.2469pt,0) -- ++(0,\doiscentesimos);
+  \draw[very thin,azul] (217.3597pt,0) -- ++(0,\doiscentesimos);
+  \draw[very thin,azul] (213.4900pt,0) -- ++(0,\doiscentesimos);
+  \draw[very thin,azul] (211.5056pt,0) -- ++(0,\doiscentesimos);
+  \draw[very thin,azul] (209.4869pt,0) -- ++(0,\doiscentesimos);
+  \draw[very thin,azul] (207.4327pt,0) -- ++(0,\doiscentesimos);
+  \draw[very thin,azul] (203.2138pt,0) -- ++(0,\doiscentesimos);
+  \draw[very thin,azul] (201.0466pt,0) -- ++(0,\doiscentesimos);
+  \draw[very thin,azul] (198.8393pt,0) -- ++(0,\doiscentesimos);
+  \draw[very thin,azul] (196.5906pt,0) -- ++(0,\doiscentesimos);
+  \draw[very thin,azul] (191.9632pt,0) -- ++(0,\doiscentesimos);
+  \draw[very thin,azul] (189.5816pt,0) -- ++(0,\doiscentesimos);
+  \draw[very thin,azul] (187.1526pt,0) -- ++(0,\doiscentesimos);
+  \draw[very thin,azul] (184.6745pt,0) -- ++(0,\doiscentesimos);
+  \draw[very thin,azul] (180.8614pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (179.5639pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (178.2527pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (176.9276pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (175.5883pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (174.2346pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (172.8662pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (171.4828pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (170.0840pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (167.2395pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (165.7930pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (164.3300pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (162.8501pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (161.3531pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (159.8384pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (158.3058pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (156.7548pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (155.1852pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (151.9881pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (150.3599pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (148.7113pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (147.0418pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (145.3510pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (143.6384pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (141.9036pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (140.1459pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (138.3649pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (134.7306pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (132.8762pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (130.9961pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (129.0897pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (127.1563pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (125.1954pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (123.2060pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (121.1876pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (119.1394pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (114.9503pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (112.8077pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (110.6320pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (108.4222pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (106.1773pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (103.8965pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (101.5785pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (99.2224pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (96.8270pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (91.9136pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (89.3930pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (86.8282pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (84.2177pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (81.5599pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (78.8535pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (76.0967pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (73.2880pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (70.4254pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (64.5314pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (61.4959pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (58.3985pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (55.2371pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (52.0091pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (48.7120pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (45.3431pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (41.8997pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (38.3786pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (31.0906pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (27.3166pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (23.4510pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (19.4897pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (15.4283pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (11.2622pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (6.9864pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (2.5955pt,0) -- ++(0,\centesimos);
+  \draw[very thin,azul] (-1.9161pt,0) -- ++(0,\centesimos);
+  \draw[very thin] (337.4665pt,0) -- ++(0,\decimos);
+  \draw[very thin] (334.5727pt,0) -- ++(0,\decimos);
+  \draw[very thin] (331.5784pt,0) -- ++(0,\decimos);
+  \draw[very thin] (328.4774pt,0) -- ++(0,\decimos);
+  \draw[very thin] (321.9268pt,0) -- ++(0,\decimos);
+  \draw[very thin] (318.4615pt,0) -- ++(0,\decimos);
+  \draw[very thin] (314.8576pt,0) -- ++(0,\decimos);
+  \draw[very thin] (311.1051pt,0) -- ++(0,\decimos);
+  \draw[very thin] (303.1085pt,0) -- ++(0,\decimos);
+  \draw[very thin] (298.8383pt,0) -- ++(0,\decimos);
+  \draw[very thin] (294.3669pt,0) -- ++(0,\decimos);
+  \draw[very thin] (289.6770pt,0) -- ++(0,\decimos);
+  \draw[very thin] (279.5616pt,0) -- ++(0,\decimos);
+  \draw[very thin] (274.0890pt,0) -- ++(0,\decimos);
+  \draw[very thin] (268.3029pt,0) -- ++(0,\decimos);
+  \draw[very thin] (262.1704pt,0) -- ++(0,\decimos);
+  \draw[very thin] (248.7076pt,0) -- ++(0,\decimos);
+  \draw[very thin] (241.2811pt,0) -- ++(0,\decimos);
+  \draw[very thin] (233.3126pt,0) -- ++(0,\decimos);
+  \draw[very thin] (224.7287pt,0) -- ++(0,\decimos);
+  \draw[very thin] (205.3421pt,0) -- ++(0,\decimos);
+  \draw[very thin] (194.2991pt,0) -- ++(0,\decimos);
+  \draw[very thin] (182.1455pt,0) -- ++(0,\decimos);
+  \draw[very thin] (168.6697pt,0) -- ++(0,\decimos);
+  \draw[very thin] (136.5600pt,0) -- ++(0,\decimos);
+  \node at (136.5600pt,\decimos+0.15) {\scriptsize $1.9$};
+  \draw[very thin] (117.0606pt,0) -- ++(0,\decimos);
+  \node at (117.0606pt,\decimos+0.15) {\scriptsize $1.8$};
+  \draw[very thin] (94.3911pt,0) -- ++(0,\decimos);
+  \node at (94.3911pt,\decimos+0.15) {\scriptsize $1.7$};
+  \draw[very thin] (67.5072pt,0) -- ++(0,\decimos);
+  \node at (67.5072pt,\decimos+0.15) {\scriptsize $1.6$};
+  \draw[thick] (-6.5546pt,0) -- ++(0,\inteiros);
+  \node at (-9.5546pt,\inteiros+0.2) {\footnotesize$1.4$};
+  \draw (452.7786pt,0) -- ++(0,\meios);
+  \draw (446.7766pt,0) -- ++(0,\meios);
+  \draw (440.1253pt,0) -- ++(0,\meios);
+  \draw (432.6864pt,0) -- ++(0,\meios);
+  \draw (424.2749pt,0) -- ++(0,\meios);
+  \draw (414.6365pt,0) -- ++(0,\meios);
+  \draw (403.4089pt,0) -- ++(0,\meios);
+  \draw (390.0545pt,0) -- ++(0,\meios);
+  \draw (373.7299pt,0) -- ++(0,\meios);
+  \node at (373.7299pt,\meios+0.15) {\scriptsize $6.5$};
+  \draw (353.0145pt,0) -- ++(0,\meios);
+  \node at (353.0145pt,\meios+0.15) {\scriptsize $5.5$};
+  \draw (325.2627pt,0) -- ++(0,\meios);
+  \node at (325.2627pt,\meios+0.15) {\scriptsize $4.5$};
+  \draw (284.7493pt,0) -- ++(0,\meios);
+  \node at (284.7493pt,\meios+0.15) {\scriptsize $3.5$};
+  \draw (215.4410pt,0) -- ++(0,\meios);
+  \node at (215.4410pt,\meios+0.15) {\scriptsize $2.5$};
+  \draw (34.7767pt,0) -- ++(0,\meios);
+  \node at (34.7767pt,\meios+0.15) {\scriptsize $1.5$};
+  \draw[thick] (510.2362pt,0) -- ++(0,\inteiros);
+  \draw (508.1969pt,0) -- ++(0,\inteiros);
+  \draw (503.8510pt,0) -- ++(0,\inteiros);
+  \draw (501.5296pt,0) -- ++(0,\inteiros);
+  \draw (499.0979pt,0) -- ++(0,\inteiros);
+  \draw (496.5458pt,0) -- ++(0,\inteiros);
+  \draw (491.0339pt,0) -- ++(0,\inteiros);
+  \draw (488.0463pt,0) -- ++(0,\inteiros);
+  \draw (484.8823pt,0) -- ++(0,\inteiros);
+  \draw (481.5220pt,0) -- ++(0,\inteiros);
+  \draw (474.1151pt,0) -- ++(0,\inteiros);
+  \draw (470.0083pt,0) -- ++(0,\inteiros);
+  \draw (465.5823pt,0) -- ++(0,\inteiros);
+  \draw (460.7892pt,0) -- ++(0,\inteiros);
+  \draw (449.8515pt,0) -- ++(0,\inteiros);
+  \draw (443.5398pt,0) -- ++(0,\inteiros);
+  \draw (436.5145pt,0) -- ++(0,\inteiros);
+  \draw (428.6162pt,0) -- ++(0,\inteiros);
+  \draw (409.2497pt,0) -- ++(0,\inteiros);
+  \node at (409.2497pt,\inteiros+0.2) {$9$};
+  \draw (397.0410pt,0) -- ++(0,\inteiros);
+  \node at (397.0410pt,\inteiros+0.2) {$8$};
+  \draw (382.3339pt,0) -- ++(0,\inteiros);
+  \node at (382.3339pt,\inteiros+0.2) {$7$};
+  \draw (364.0455pt,0) -- ++(0,\inteiros);
+  \node at (364.0455pt,\inteiros+0.2) {$6$};
+  \draw (307.1928pt,0) -- ++(0,\inteiros);
+  \node at (307.1928pt,\inteiros+0.2) {$4$};
+  \draw (255.6533pt,0) -- ++(0,\inteiros);
+  \node at (255.6533pt,\inteiros+0.2) {$3$};
+  \draw (153.5964pt,0) -- ++(0,\inteiros);
+  \node at (153.5964pt,\inteiros+0.2) {$2$};
+  \draw[very thick] (506.0708pt,0) -- ++(0,\multiplosdecinco);
+  \node at (506.0708pt,\multiplosdecinco+0.2) {$30$};
+  \draw[very thick] (493.8621pt,0) -- ++(0,\multiplosdecinco);
+  \node at (493.8621pt,\multiplosdecinco+0.2) {$25$};
+  \draw[very thick] (477.9421pt,0) -- ++(0,\multiplosdecinco);
+  \node at (477.9421pt,\multiplosdecinco+0.2) {$20$};
+  \draw[very thick] (455.5701pt,0) -- ++(0,\multiplosdecinco);
+  \node at (455.5701pt,\multiplosdecinco+0.2) {$15$};
+  \draw[very thick] (419.6286pt,0) -- ++(0,\multiplosdecinco);
+  \node at (419.6286pt,\multiplosdecinco+0.2) {$10$};
+  \draw[very thick] (340.2657pt,0) -- ++(0,\multiplosdecinco);
+  \node at (340.2657pt,\multiplosdecinco+0.2) {$5$};
+}
+
+
+\newcommand{\escalaLL}{%
+  \begin{scope}[yscale=-1]
+    \escalaLogLog
+    % base
+    \draw[thick,line cap=round] (-6.5546pt,0) -- (510.2362pt,0);
+    \node[left,vermelho] at (-0.6,0.3) {\large LL};
+    \node[right] at (18.05,0.3) {$a$};
+  \end{scope}}
+
+\newcommand{\escalaMM}{%
+    \escalaLogLog
+    % base
+    \draw[thick,line cap=round] (-6.5546pt,0) -- (510.2362pt,0);
+    \node[left,vermelho] at (-0.6,0.3) {\large MM};
+    \node[right] at (18.05,0.3) {$a^x$};}
+
+
+\endinput
+
+%% comandos quando as escalas eram desenhadas com tikz
+
+\newcommand{\escalaLog}{% escala logaritmica
+  % % (0cm -> 19cm) <-> (ln 1 -> ln 10)
+  % % 19/ln(10) = 8.251595156161784
+  \begin{scope}[xscale=8.252]
+    % marcação das raízes de 2, 3 e 5
+    \foreach \i in {2,3,5} {
+      \draw[azul] ({ln(sqrt(\i))},0) -- ++(0,.6);
+      \node[azul] at ({ln(sqrt(\i))},.75) {\scriptsize $\sqrt{\i}$};
+    }
+    % marcação principal
+    \foreach \i in {2,...,9}
+    {
+      \draw[thick] ({ln(\i)},0) -- ++(0,\inteiros);
+    }
+    \foreach \i in {1,...,10} {
+      \node at ({ln(\i)},\inteiros+0.2) {\i};
+            %{\makebox[0cm][l]{\i}};
+    }
+    % marcação e texto nos meios de 3.5 em diante
+    \foreach \i in {3,...,9}
+    {
+      \draw ({ln(\i+0.5)},0) -- ++(0,\meios);
+    }
+    \foreach \i in {3,...,9}
+    {
+      \node at ({ln(\i+0.5)},\meios+0.15) {\scriptsize 5};
+    }
+    % marcação nos décimos
+    \foreach \i in {1,2}
+    {
+      \foreach \j in {1,...,9}
+      {
+        \draw[very thin] ({ln(\i+0.1*\j)},0) -- ++(0,\decimos);
+      }
+    }
+    \foreach \i in {3,...,9}
+    {
+      \foreach \j in {1,2,3,4,6,7,8,9}
+      {
+        \draw[very thin] ({ln(\i+0.1*\j)},0) -- ++(0,\decimos);
+      }
+    }
+    % texto nos décimos até 2
+    \foreach \i in {1,...,9}
+    {
+      \node at ({ln(1+.1*\i)},\decimos+.15) {\scriptsize 1.\i};
+            %{\makebox[0cm][l]{\scriptsize{.}\i}};
+    }
+    \foreach \i in {1,...,9}
+    {
+      \node at ({ln(2+.1*\i)},\decimos+.15) {\tiny 2.\i};
+            %{\makebox[0cm][l]{\scriptsize{.}\i}};
+    }
+    % marcação nos centésimos até 2
+    \foreach \i in {0,...,9}
+    {
+      \foreach \j in {1,...,9}
+      {
+        \draw[very thin,azul] ({ln(1+0.1*\i+0.01*\j)},0) --
+        ++(0,\centesimos);
+      }
+    }
+    % marcação nos 2 centésimos de 2 a 4
+    \foreach \i in {2,3}
+    {
+      \foreach \j in {0,...,9}
+      {
+        \foreach \k in {2,4,6,8}
+        {
+          \draw[very thin,azul] ({ln(\i + 0.1*\j + 0.01*\k)},0) --
+          ++(0,\doiscentesimos);
+        }
+      }
+    }
+    % marcação nos 0.5 décimos de 4 a 9
+    \foreach \i in {4,...,9}
+    {
+      \foreach \j in {0,...,9}
+      {
+        \draw[very thin,azul] ({ln(\i + 0.1*\j + 0.05)},0) --
+        ++(0,\meiodecimos);
+      }
+    }
+  \end{scope}
+}
+
+\newcommand{\escalaLogLog}{%
+  \begin{scope}[xshift=8.744cm,xscale=8.252]
+    % marcação das raízes de 2, 3 e 5
+    \foreach \i in {2,3,5} {
+      \draw[azul] ({ln(ln(sqrt(\i)))},0) -- ++(0,.5);
+      \node[azul] at ({ln(ln(sqrt(\i)))},.65) {\scriptsize$\sqrt{\i}$};
+    }
+    \node at ({ln(ln(1.4))-0.02},\inteiros + 0.15) {\footnotesize 1.4};
+    % marcação das unidades, exceto múltiplos de 5
+    \foreach \i in {2,3,4,6,7,8,9,11,12,13,14} {
+      \draw[thick] ({ln(ln(\i))},0) -- ++(0,\unidades);
+    }
+    \foreach \i in {16,17,18,19,21,22,23,24,26,27,28,29,31} {
+      \draw ({ln(ln(\i))},0) -- ++(0,\unidades);
+    }
+    % marcação dos múltiplos de 5
+    \foreach \i in {5,15,25} {
+      \draw[very thick] ({ln(ln(\i))},0) -- ++(0,\multiplosdecinco);
+    }
+    \foreach \i in {10,20,30} {
+      \draw[very thick] ({ln(ln(\i))},0) -- ++(0,\dezenas);
+    }
+    % texto de 2 a 10
+    \foreach \i in {2,3,4,6,7,8,9} {
+      \node at ({ln(ln(\i))},\unidades+.2) {\i};
+    }
+    \foreach \i in {5,15,25} {
+      \node at ({ln(ln(\i))},\multiplosdecinco+.2) {\i};
+    }
+    \foreach \i in {10,20,30} {
+      \node at ({ln(ln(\i))},\dezenas+.2) {\i};
+    }
+    % marcação dos meios
+    \foreach \i in {1,...,14} {
+      \draw ({ln(ln(\i+.5))},0) -- ++(0,\meios);
+    }
+    % marcação dos décimos até 5
+    % primeiro, de 1.4 a 1.9
+    \foreach \j in {6,7,8,9} {
+      \draw[thin] ({ ln(ln( 1 + 0.1*\j ))},0) -- ++(0,\decimos);
+    }
+    %depois, de 2.1 a 4.9
+    \foreach \i in {2,...,4} {
+      \foreach \j in {1,2,3,4,6,7,8,9} {
+        \draw[thin] ({ ln(ln( \i + 0.1*\j ))},0) -- ++(0,\decimos);
+      }
+    }
+    % texto para décimos 1.5 a 1.9 menor
+    \foreach \i in {6,...,9} {
+      \node at ({ln(ln(1 + 0.1*\i))},\decimos+.2) {\scriptsize 1.\i};
+    }
+    % texto para meios de 2.5 a 6.5
+    \foreach \i in {1,...,6} {
+      \node at ({ln(ln(\i + 0.5))},\meios+.2) {\scriptsize \i.5};
+    }
+    % marcação dos centésimos de 1.41 a 2.19
+    \foreach \i in {14,...,21} {
+      \foreach \j in {1,...,9} {
+        \draw[very thin,azul]
+          ({ln(ln(0.1*\i + 0.01*\j))},0) -- ++(0,\centesimos);
+      }
+    }
+    % marcação nos 2 centésimos de 2.22 a 4
+    \foreach \i in {22,...,29}
+    {
+      \foreach \j in {2,4,6,8}
+      {
+        \draw[very thin,azul]
+        ({ln(ln(0.1*\i + 0.01*\j))},0) --
+        ++(0,\doiscentesimos);
+      }
+    }
+    % finalmente, a base
+    \draw[thick] ({ln(ln(1.4))},\inteiros) -- ++(0,-\inteiros) -- 
+          ({ln(ln(32))},0) -- ++(0,\inteiros);
+  \end{scope}}
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "regua"
+%%% End:

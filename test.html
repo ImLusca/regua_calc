@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>regua</title>
+    <link rel="stylesheet" href="styles.css">    
+</head>
+<body style="display: flex; justify-content: center; flex-wrap: wrap;">
+  
+    <div id="marcador"></div>
+    <div id="referencia" class="regua">
+      <div class="regua movel" id="move"> </div>
+    </div>  
+    
+  
+    
+
+
+    <div class="define_x">
+      <p id = "coords">Valor de x: </p>
+      N1:
+      <input id="numero1"/>
+      N2:
+      <input id="numero2"/>
+      =
+      <input id="resultado"/>
+      <button id="btn_calculaMultiplicacao">Multiplicar</button>
+      <button id="btn_calculaDivisao">Dividir</button>
+
+    </div>
+    <p id="coords">x do mouse : 0000 </p>
+
+</body>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+  crossorigin="anonymous"></script>
+<script>
+
+ArrastaElemento(document.getElementById("move"));
+ArrastaElemento(document.getElementById("marcador"));
+
+window.addEventListener('mousemove', e =>{
+  document.getElementById('coords').innerHTML = "x do mouse : " + e.x ;
+})
+
+document.getElementById("btn_calculaMultiplicacao").addEventListener('click', x =>{
+  var n1 = document.getElementById('numero1');
+  var n2 = document.getElementById('numero2');
+  var res = document.getElementById('resultado');
+
+  define_pos(n1.value)
+  res.value = Math.round((n1.value * n2.value) * 100) / 100;
+  move_marcador(res.value)
+
+})
+document.getElementById("btn_calculaDivisao").addEventListener('click', x =>{
+  var n1 = document.getElementById('numero1');
+  var n2 = document.getElementById('numero2');
+  var res = document.getElementById('resultado');
+
+  res.value = Math.round((n1.value / n2.value) * 100) / 100;
+  move_marcador(res.value)
+  define_pos(res.value)
+
+})
+
+
+
+
+function define_pos(n){
+  var total = 0, util = 0,reset =0, _n ;
+  var referencia = document.getElementById('referencia');
+  var movel = document.getElementById('move');
+  total = referencia.clientWidth;
+  reset = referencia.offsetLeft;
+  reset = reset + (total * 0.10491071);
+  util = total * 0.83482142
+
+  _n = (Math.log10(n) * util) ;
+
+  $("#move").animate({
+    left: _n + 3
+  }, 1000, function(){})
+
+  // movel.style.left = (_n + 3) + "px";
+  console.log(_n); 
+
+}
+
+function recebe_pos(){
+  var total = 0, util = 0,reset =0, _n ;
+  var referencia = document.getElementById('referencia');
+  var movel = document.getElementById('move');
+  total = referencia.clientWidth;
+  reset = referencia.offsetLeft;
+  reset = reset + (total * 0.10491071);
+  util = total * 0.83482142
+
+  _n = movel.style.left.replace("px","") -3
+  _n = _n/util;
+  _n = Math.pow(10,_n);
+  return _n;
+}
+
+function move_marcador(n){
+  var total = 0, util = 0,reset =0, _n ;
+  var referencia = document.getElementById('referencia');
+  var movel = document.getElementById('marcador');
+  total = referencia.clientWidth;
+  reset = referencia.offsetLeft;
+  reset = reset + (total * 0.10491071);
+  util = total * 0.83482142
+  _n = (Math.log10(n) * util);
+  $("#marcador").animate({
+    left: _n + reset - 3
+  }, 1500, function(){})
+  // movel.style.left = (_n + reset - 3) + "px";
+  console.log(_n);   
+}
+
+function move_marcador_sup(n){
+  var total = 0, util = 0,reset =0, _n ;
+  var referencia = document.getElementById('referencia');
+  var movel = document.getElementById('marcador');
+  total = referencia.clientWidth;
+  reset = referencia.offsetLeft;
+  reset = reset + (total * 0.10491071);
+  util = total * 0.83482142
+  _n = ((Math.log(n) / Math.log(10)) * util);
+  $("#marcador").animate({
+    left: _n + reset - 3
+  }, 1500, function(){})
+  // movel.style.left = (_n + reset - 3) + "px";
+  console.log(_n);   
+}
+
+
+document.getElementById("numero1").addEventListener("keyup", x =>{
+  if(x.keyCode === 13){
+    define_pos(document.getElementById("numero1").value);
+  }
+})
+
+function ArrastaElemento(elmnt) {
+  var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;  
+  if (document.getElementById(elmnt.id)) {
+    document.getElementById(elmnt.id).onmousedown = dragMouseDown;
+  } else {
+    elmnt.onmousedown = dragMouseDown;
+  }
+
+  function dragMouseDown(e) {
+    e = e || window.event;
+    e.preventDefault();
+    pos3 = e.clientX;
+    document.onmouseup = finalizaArrastaElemento;
+    document.onmousemove = elementDrag;
+  }
+
+  function elementDrag(e) {
+    e = e || window.event;
+    e.preventDefault();
+    pos1 = pos3 - e.clientX;
+    pos3 = e.clientX;
+    document.getElementById("numero1").setAttribute('value',recebe_pos().toFixed(3));
+    elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+  }
+
+  function finalizaArrastaElemento() {
+    document.onmouseup = null;
+    document.onmousemove = null;
+  }
+
+
+}
+</script>
+
+</html>

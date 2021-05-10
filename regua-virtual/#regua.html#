@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+  <meta charset="utf-8">
+  <title>Régua de Cálculo do Museu de Computação Odelar Leite Linhares</title>
+
+<body bgcolor="#aaaaaa">
+<script type="text/javascript" src="wz_dragdrop.js"></script>
+<script type="text/javascript" src="ce_wz_library.js"></script>
+
+<h1>Régua de Cálculo do Museu de Computação Odelar Leite Linhares</h1>
+
+<p>Arraste a régua interna para calcular com nossa régua de cálculo.</p>
+
+<p>Zoom:
+  <input id="zoom1" type="button" onclick="zoomMais()" value="+">
+  <input id="zoom2" type="button" onclick="zoomMenos()" value="-">
+</p>
+
+
+<p><span style="color:red">&darr;</span> em:
+  <input id="posVermelho" type="text" size="4">
+  <input id="button1" type="button" onclick="posicaoUmVermelho(1)" value="1 (início)">
+  <input id="button2" type="button" onclick="posicaoUmVermelho(2)" value="2 (2x, x²)">
+  <input id="button3" type="button" onclick="posicaoUmVermelho(3)" value="3 (3x, x³)">
+  <input id="button4" type="button" onclick="posicaoUmVermelho(4)" value="4 (4x, x⁴)">
+  <input id="button5" type="button" onclick="posicaoUmVermelho(5)" value="5 (5x, x⁵)">
+  <input id="button6" type="button" onclick="posicaoUmVermelho(6)" value="6 (6x)">
+  <input id="button7" type="button" onclick="posicaoUmVermelho(7)" value="7 (7x)">
+  <input id="button8" type="button" onclick="posicaoUmVermelho(8)" value="8 (8x)">
+  <input id="button9" type="button" onclick="posicaoUmVermelho(9)" value="9 (9x)">
+</p>
+
+<p><span style="color:blue">&darr;</span> em:
+  <input id="posAzul" type="text" size="4">
+  <input id="button2" type="button" onclick="posicaoUmVermelho(0.2)" value="2 (0.2x)">
+  <input id="button3" type="button" onclick="posicaoUmVermelho(0.3)" value="3 (0.3x)">
+  <input id="button4" type="button" onclick="posicaoUmVermelho(0.4)" value="4 (0.4x)">
+  <input id="button5" type="button" onclick="posicaoUmVermelho(0.5)" value="5 (0.5x)">
+  <input id="button6" type="button" onclick="posicaoUmVermelho(0.6)" value="6 (0.6x)">
+  <input id="button7" type="button" onclick="posicaoUmVermelho(0.7)" value="7 (0.7x)">
+  <input id="button8" type="button" onclick="posicaoUmVermelho(0.8)" value="8 (0.8x)">
+  <input id="button9" type="button" onclick="posicaoUmVermelho(0.9)" value="9 (0.9x)">
+</p>
+
+<div id="regua" style="position:relative;top:10px;left:20px;height:866px;width:1222px">
+
+   <img style="position:absolute;top:6px;left:0;" id="fora" src="regua-fora.png" width="1222" height="866" >
+
+   <img style="position:absolute;top:170px;left:-18px;" id="dentro" src="regua-dentro.png" width="1242" height="119" >
+
+</div>
+
+<!-- este código tem que estar no final da página -->
+<script type="text/javascript">
+  // baseado em view-source:http://www.stefanv.com/calculators/aristo970/index.html
+
+  function formatarNumero(n,s)
+  {
+      if( n == 0 ) {
+          str = '0.000000000';
+          return str.substring(0,s+2);
+      }
+      str = '' + (n + 1e-9);
+      digits = 0;
+      non_zero_seen = 0;
+      dot_seen = 0;
+      round = 1;
+      for( i = 0; i < str.length; i++ ) {
+          c = str.substring(i,i+1);
+          if( '0' <= c && c <= '9' ) {
+              if( dot_seen )
+                  round *= 10;
+              if( c != '0' )
+                  non_zero_seen = 1;
+              if( non_zero_seen && ++digits >= s && dot_seen ) {
+                  n = Math.round(round * n) / round;
+                  str = '' + n;
+                  if( str.indexOf('.') < 0 )
+                      str = str + '.';
+                  str = str + '00000000';
+                  return str.substring(0,i+1);
+              }
+          }
+          else if( c == '.' ) {
+              dot_seen = 1;
+              if( non_zero_seen && digits >= s ) {
+                  n = Math.round(n);
+                  str = '' + n;
+                  return str.substring(0,i);
+              }
+          }
+      }
+      return str; // we ran out of digits
+  }
+
+  // acerta a posição do 1 vermelho para n.
+  function posicaoUmVermelho(n)
+  {
+    var pos = Math.round( zoomAtual * ( 1059 * Math.log(n)/Math.log(10) - 18 ) );
+    var x = dd.elements.regua.x+pos;
+    var y = dd.elements.dentro.y;
+    var w = dd.elements.dentro.w;
+    var h = dd.elements.dentro.h;
+    var id = "dentro";
+    var duration = 100;
+    var steps = 10;
+    transformLayer(x,y,w,h,id,duration,steps);
+  }
+
+  function mostrarValores ()
+  {
+      var pos = dd.elements.dentro.x - dd.elements.regua.x;
+      // da função posicaoUmVermelho(), isolar n em função de pos.
+      var valor = Math.exp((pos/zoomAtual + 18) * Math.log(10)/1059);
+      document.posVermelho.value = formatarNumero( valor, 4 );
+      document.posAzul.value = formatarNumero( valor * 10, 4 );
+  }
+
+  var zoomAtual = 1;
+  var fatorZoom = 1.1;
+
+
+  function zoom(n)
+  {
+    var posicaoRelativa =
+        (dd.elements.regua.x - dd.elements.dentro.x) / zoomAtual - 18;
+
+    var dentroX = dd.elements.regua.x - (posicaoRelativa + 18) * zoomAtual;
+    var dentroY = dd.elements.regua.x
+
+    var x = dd.elements.regua.x;
+    var y = dd.elements.dentro.y;
+    var w = dd.elements.dentro.w;
+    var h = dd.elements.dentro.h;
+    var id = "dentro";
+    var duration = 100;
+    var steps = 10;
+    // função em ce_wz_library.js
+    transformLayer(x,y,w,h,id,duration,steps);
+  }
+
+		     // esta tem que ser a ultima linha
+  SET_DHTML(SCROLL, "dentro"+HORIZONTAL, "regua"+HORIZONTAL+RESET_Z, "instrucoes"+HORIZONTAL+VERTICAL);
+
+</script>
+
+</body></html>

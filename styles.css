@@ -1,0 +1,56 @@
+body{overflow-x: hidden;}
+
+div::selection{
+    background-color: #fff;
+}
+.regua {
+    width: 70%;
+    font-size: 20px;
+    display: flex;
+    justify-content: space-between;
+    background-size: 100% 100%;
+    position:absolute;
+    letter-spacing: 12px;
+}
+
+#referencia{
+    background-image: url(./src/referencia_regua.jpg);
+    height: 60vh;
+}
+
+input{
+    width: 60px;
+}
+
+#move {
+    width: 100%;
+    background-image: url(./src/Movel_regua.jpg);
+    height: 16vh;
+    top: 156px;
+    left: 3px;
+    cursor: move; /* fallback if grab cursor is unsupported */
+    cursor: grab;
+    cursor: -moz-grab;
+    cursor: -webkit-grab;
+}
+
+ /* (Optional) Apply a "closed-hand" cursor during drag operation. */
+#move:active {
+    cursor: grabbing;
+    cursor: -moz-grabbing;
+    cursor: -webkit-grabbing;
+}
+#marcador{
+    height: 52vh;
+    width: 5px;
+    left: 284px;
+    z-index: 5;
+    position: absolute;
+    opacity: 0.2;
+    background-color: #a9172e;
+}
+
+
+.define_x{position: absolute; bottom: 253px; color: #fdefef;}
+#test{bottom: 200px;}
+#coords{color: #fdefef;margin: 0;}
