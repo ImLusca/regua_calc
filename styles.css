@@ -1,10 +1,25 @@
-body{overflow-x: hidden;}
-
-div::selection{
-    background-color: #fff;
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
+input[type=number] {
+  -moz-appearance: textfield;
+}
+body{overflow-x: hidden;}
+*{outline: none;}
+div::selection{background-color: #fff;}
+
+.container{
+    width: 100%;
+    height: 350px;
+    display: flex; 
+    justify-content: center; 
+    flex-wrap: wrap;
+}
+
 .regua {
-    width: 70%;
+    width: 80%;
     font-size: 20px;
     display: flex;
     justify-content: space-between;
@@ -15,18 +30,16 @@ div::selection{
 
 #referencia{
     background-image: url(./src/referencia_regua.jpg);
-    height: 60vh;
+    height: 350px;
 }
-
 input{
     width: 60px;
 }
-
 #move {
     width: 100%;
     background-image: url(./src/Movel_regua.jpg);
-    height: 16vh;
-    top: 156px;
+    height: 94px;
+    top: 145px;
     left: 3px;
     cursor: move; /* fallback if grab cursor is unsupported */
     cursor: grab;
@@ -51,6 +64,37 @@ input{
 }
 
 
-.define_x{position: absolute; bottom: 253px; color: #fdefef;}
-#test{bottom: 200px;}
-#coords{color: #fdefef;margin: 0;}
+.frame{
+    color: #2f2929;
+    background: rgba( 255, 255, 255, 0.35 );
+    box-shadow: 6px 6px 1px 0 rgb(169 23 46 / 57%);
+    border-radius: 10px;
+    border: 1px solid rgb(243 49 80);
+    width: 78%;
+    padding: 20px;
+    margin: 25px auto;
+}
+
+
+button{
+    background-color: #fff;
+    border: 2px solid #f33150;
+    border-radius: 8px 0px;
+    cursor: pointer;
+    transition: .3s;
+    float: right;
+    margin: 0 10px;
+}
+button:hover{
+    background-color: #f33150;
+    color: #fff;
+    border-radius: 0px 8px;
+    transform: scale(1.2);
+    
+}
+.conjunto{display: inline;margin-right: 20px;}
+.conjunto > p {display: contents;}
+input{
+    border: 2px solid #ec2443;
+    border-width: 0px 0px 2px;
+}

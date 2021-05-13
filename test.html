@@ -7,30 +7,38 @@
     <title>regua</title>
     <link rel="stylesheet" href="styles.css">    
 </head>
-<body style="display: flex; justify-content: center; flex-wrap: wrap;">
-  
-    <div id="marcador"></div>
-    <div id="referencia" class="regua">
-      <div class="regua movel" id="move"> </div>
-    </div>  
+<body>
+    <div class="container">
+      <div id="marcador" style="left: 233px;"></div>
+      <div id="referencia" class="regua">
+        <div class="regua movel" id="move"> </div>
+      </div>  
+    </div>
     
-  
-    
+    <div class="frame">
+      <div class="operacoes">
+
+        <div class="conjunto" style="display: inline;">
+          <p>Primeiro número: </p>
+          <input id="numero1" type="number"/>
+        </div>
+        <div class="conjunto">
+          <p>Segundo número: </p>
+          <input id="numero2" type="number"/>
+        </div>
+        <div class="conjunto">
+          <p>resultado</p>
+          <input id="resultado" />
+        </div>
+
+        <button id="btn_calculaDivisao">Dividir</button>
+        <button id="btn_calculaMultiplicacao">Multiplicar</button>
+
+      </div>
 
 
-    <div class="define_x">
-      <p id = "coords">Valor de x: </p>
-      N1:
-      <input id="numero1"/>
-      N2:
-      <input id="numero2"/>
-      =
-      <input id="resultado"/>
-      <button id="btn_calculaMultiplicacao">Multiplicar</button>
-      <button id="btn_calculaDivisao">Dividir</button>
 
     </div>
-    <p id="coords">x do mouse : 0000 </p>
 
 </body>
 
@@ -42,9 +50,6 @@
 ArrastaElemento(document.getElementById("move"));
 ArrastaElemento(document.getElementById("marcador"));
 
-window.addEventListener('mousemove', e =>{
-  document.getElementById('coords').innerHTML = "x do mouse : " + e.x ;
-})
 
 document.getElementById("btn_calculaMultiplicacao").addEventListener('click', x =>{
   var n1 = document.getElementById('numero1');
@@ -61,14 +66,23 @@ document.getElementById("btn_calculaDivisao").addEventListener('click', x =>{
   var n2 = document.getElementById('numero2');
   var res = document.getElementById('resultado');
 
+  if(n1.value < 1){
+    return;
+  }
+  if(n1.value == 0 || n2.value == 0){
+    return;
+  }
+  if(n1.value == null || n2.value == null){
+    return;
+  }
+  
+
+
   res.value = Math.round((n1.value / n2.value) * 100) / 100;
   move_marcador(res.value)
   define_pos(res.value)
 
 })
-
-
-
 
 function define_pos(n){
   var total = 0, util = 0,reset =0, _n ;
@@ -100,6 +114,7 @@ function recebe_pos(){
   util = total * 0.83482142
 
   _n = movel.style.left.replace("px","") -3
+  console.log(_n)
   _n = _n/util;
   _n = Math.pow(10,_n);
   return _n;
@@ -128,15 +143,15 @@ function move_marcador_sup(n){
   total = referencia.clientWidth;
   reset = referencia.offsetLeft;
   reset = reset + (total * 0.10491071);
-  util = total * 0.83482142
-  _n = ((Math.log(n) / Math.log(10)) * util);
+  util = total * 0.83482142;
+  _n = Math.log(n) / Math.log(Math.SQRT2);
+  _n = (Math.log10(_n) * util);
   $("#marcador").animate({
-    left: _n + reset - 3
+    left:  _n + reset - 3
   }, 1500, function(){})
   // movel.style.left = (_n + reset - 3) + "px";
   console.log(_n);   
 }
-
 
 document.getElementById("numero1").addEventListener("keyup", x =>{
   if(x.keyCode === 13){
