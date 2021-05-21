@@ -113,15 +113,17 @@ document.getElementById("btn_calculaLog").addEventListener('click', x =>{
   res.value = Math.round((Math.log(n2.value) / Math.log(n1.value)) * 100) / 100;
   define_pos(res.value);
   move_marcador_sup(n2.value);
+  setTimeout(()=>{move_marcador(res.value)},1750)
 })
 
 document.getElementById("btn_calculaRaiz").addEventListener('click', x =>{
-  var n1 = document.getElementById('numero1');
-  var n2 = document.getElementById('numero2');
+  var n1 = document.getElementById('numero1').value;
+  var n2 = document.getElementById('numero2').value;
   var res = document.getElementById('resultado');
-  res.value = Math.round((Math.pow(n2.value,(1/n1.value))) * 100) /100
-  define_pos(n1.value);
-  move_marcador_sup(n2.value);
+  res.value = Math.round((Math.pow(n2,(1/n1))) * 100) /100
+  define_pos(n1);
+  move_marcador(n1);
+  setTimeout(()=>{move_marcador_sup(n2)},1750)  
 })
 
 // funções de posicionamento da régua
