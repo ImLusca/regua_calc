@@ -31,9 +31,11 @@
           <input id="resultado" />
         </div>
 
+        <button id="btn_calculaLog">Log</button>
         <button id="btn_calculaDivisao">Dividir</button>
         <button id="btn_calculaMultiplicacao">Multiplicar</button>
-
+        <button id="btn_calculaPot">Potência</button>
+        <button id="btn_calculaRaiz">Raiz</button>
       </div>
 
 
@@ -51,40 +53,80 @@ ArrastaElemento(document.getElementById("move"));
 ArrastaElemento(document.getElementById("marcador"));
 
 
+//funções matemáticas --> simplificar para uma única função usando switch case quando todas estiverem prontas
 document.getElementById("btn_calculaMultiplicacao").addEventListener('click', x =>{
-  var n1 = document.getElementById('numero1');
-  var n2 = document.getElementById('numero2');
+  var n1 = document.getElementById('numero1').value;
+  var n2 = document.getElementById('numero2').value;
   var res = document.getElementById('resultado');
+  var rs_fin = 0;
+  n2 = (n2 > 10)?(n2/10) : (n2);
 
-  define_pos(n1.value)
-  res.value = Math.round((n1.value * n2.value) * 100) / 100;
-  move_marcador(res.value)
+  res.value = Math.round((n1 * n2) * 100) / 100;
+
+  define_pos(n1,(res.value < 10))
+  rs_fin=(res.value >= 10) ? (res.value / 10) : (res.value);
+  move_marcador((n1 > 10)?(n1/10):(n1) ,rs_fin);
+
 
 })
+
 document.getElementById("btn_calculaDivisao").addEventListener('click', x =>{
+  var n1 = document.getElementById('numero1').value;
+  var n2 = document.getElementById('numero2').value;
+  var res = document.getElementById('resultado');
+  var rs_fin= 0;
+  if(n1 < 1){
+    return;
+  }
+  if(n1 == 0 || n2 == 0){
+    return;
+  }
+  if(n1 == null || n2 == null){
+    return;
+  }
+  res.value = Math.round((n1 / n2) * 100) / 100;
+  rs_fin = (res.value >= 10) ? (res.value / 10) : (res.value);
+  n1 = (n1 > 10) ? (n1/10): (n1);
+  n2 = (n2 > 10) ? (n2/10): (n2)
+  // move_marcador((n1 > 10)?(n1/10):(n1) ,rs_fin)
+  move_marcador(n1,rs_fin)
+  define_pos(rs_fin, (n2 <= n1))
+})
+
+document.getElementById("btn_calculaPot").addEventListener('click', x =>{
+  var n1 = document.getElementById('numero1').value;
+  var n2 = document.getElementById('numero2').value;
+  var res = document.getElementById('resultado');
+
+  res.value = Math.round(Math.pow(n1,n2) * 100) / 100;
+  define_pos(n2);
+  move_marcador(n2);
+  setTimeout(() =>{move_marcador_sup(res.value)},1750);
+  
+})
+
+document.getElementById("btn_calculaLog").addEventListener('click', x =>{
   var n1 = document.getElementById('numero1');
   var n2 = document.getElementById('numero2');
   var res = document.getElementById('resultado');
 
-  if(n1.value < 1){
-    return;
-  }
-  if(n1.value == 0 || n2.value == 0){
-    return;
-  }
-  if(n1.value == null || n2.value == null){
-    return;
-  }
-  
-
-
-  res.value = Math.round((n1.value / n2.value) * 100) / 100;
-  move_marcador(res.value)
-  define_pos(res.value)
-
+  res.value = Math.round((Math.log(n2.value) / Math.log(n1.value)) * 100) / 100;
+  define_pos(res.value);
+  move_marcador_sup(n2.value);
 })
 
-function define_pos(n){
+document.getElementById("btn_calculaRaiz").addEventListener('click', x =>{
+  var n1 = document.getElementById('numero1');
+  var n2 = document.getElementById('numero2');
+  var res = document.getElementById('resultado');
+  res.value = Math.round((Math.pow(n2.value,(1/n1.value))) * 100) /100
+  define_pos(n1.value);
+  move_marcador_sup(n2.value);
+})
+
+// funções de posicionamento da régua
+
+function define_pos(n,esquerda = true){
   var total = 0, util = 0,reset =0, _n ;
   var referencia = document.getElementById('referencia');
   var movel = document.getElementById('move');
@@ -92,48 +134,44 @@ function define_pos(n){
   reset = referencia.offsetLeft;
   reset = reset + (total * 0.10491071);
   util = total * 0.83482142
+
+  if(esquerda == false){
+    n = 10/n;
+  }
 
   _n = (Math.log10(n) * util) ;
 
-  $("#move").animate({
-    left: _n + 3
+  if(esquerda == false){
+    _n *= (-1);
+  }
+
+  $("#move").animate({    
+      left: _n + 3
   }, 1000, function(){})
-
-  // movel.style.left = (_n + 3) + "px";
-  console.log(_n); 
-
 }
 
-function recebe_pos(){
-  var total = 0, util = 0,reset =0, _n ;
-  var referencia = document.getElementById('referencia');
-  var movel = document.getElementById('move');
-  total = referencia.clientWidth;
-  reset = referencia.offsetLeft;
-  reset = reset + (total * 0.10491071);
-  util = total * 0.83482142
-
-  _n = movel.style.left.replace("px","") -3
-  console.log(_n)
-  _n = _n/util;
-  _n = Math.pow(10,_n);
-  return _n;
-}
-
-function move_marcador(n){
-  var total = 0, util = 0,reset =0, _n ;
+function move_marcador(n, n2=0){
+  var total = 0, util = 0,reset =0, _n, _n2 ;
   var referencia = document.getElementById('referencia');
   var movel = document.getElementById('marcador');
   total = referencia.clientWidth;
   reset = referencia.offsetLeft;
   reset = reset + (total * 0.10491071);
-  util = total * 0.83482142
+  util = total * 0.83482142  
   _n = (Math.log10(n) * util);
+  _n2 = (Math.log10(n2)*util);
   $("#marcador").animate({
     left: _n + reset - 3
-  }, 1500, function(){})
-  // movel.style.left = (_n + reset - 3) + "px";
-  console.log(_n);   
+  }, 1000, function(){
+    if(n2 != 0){
+      setTimeout(function(){
+        $("#marcador").animate({
+        left: _n2 + reset -3
+        },800)
+      },750);
+    }
+  });
+  // movel.style.left = (_n + reset - 3) + "px";  
 }
 
 function move_marcador_sup(n){
@@ -148,9 +186,24 @@ function move_marcador_sup(n){
   _n = (Math.log10(_n) * util);
   $("#marcador").animate({
     left:  _n + reset - 3
-  }, 1500, function(){})
-  // movel.style.left = (_n + reset - 3) + "px";
-  console.log(_n);   
+  }, 1000, function(){})
+  // movel.style.left = (_n + reset - 3) + "px";  
+}
+
+// funções para debug
+function recebe_pos(){
+var total = 0, util = 0,reset =0, _n ;
+var referencia = document.getElementById('referencia');
+  var movel = document.getElementById('move');
+  total = referencia.clientWidth;
+  reset = referencia.offsetLeft;
+  reset = reset + (total * 0.10491071);
+  util = total * 0.83482142
+
+  _n = movel.style.left.replace("px","") -3
+  _n = _n/util;
+  _n = Math.pow(10,_n);
+  return _n;
 }
 
 document.getElementById("numero1").addEventListener("keyup", x =>{
@@ -159,6 +212,7 @@ document.getElementById("numero1").addEventListener("keyup", x =>{
   }
 })
 
+// função de controle dos elementos com o mouse
 function ArrastaElemento(elmnt) {
   var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;  
   if (document.getElementById(elmnt.id)) {
@@ -191,6 +245,7 @@ function ArrastaElemento(elmnt) {
 
 
 }
+
 </script>
 
 </html>
