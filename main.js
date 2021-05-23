@@ -114,7 +114,7 @@ function define_pos(n,esquerda = true){
   }
 
   $("#move").animate({    
-      left: _n + 3
+      left: _n + 5
   }, 1000, function(){})
 }
 
@@ -153,7 +153,7 @@ function move_marcador_sup(n){
   _n = Math.log(n) / Math.log(Math.SQRT2);
   _n = (Math.log10(_n) * util);
   $("#marcador").animate({
-    left:  _n + reset - 3
+    left:  _n + reset - 5
   }, 1000, function(){})
   // movel.style.left = (_n + reset - 3) + "px";  
 }
