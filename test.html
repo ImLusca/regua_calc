@@ -53,19 +53,19 @@ ArrastaElemento(document.getElementById("move"));
 ArrastaElemento(document.getElementById("marcador"));
 
 
-//funções matemáticas --> simplificar para uma única função usando switch case quando todas estiverem prontas
+//funções matemáticas --> simplificar para uma única função usando switch case se for viável
 document.getElementById("btn_calculaMultiplicacao").addEventListener('click', x =>{
   var n1 = document.getElementById('numero1').value;
   var n2 = document.getElementById('numero2').value;
   var res = document.getElementById('resultado');
   var rs_fin = 0;
-  n2 = (n2 > 10)?(n2/10) : (n2);
-
+  
   res.value = Math.round((n1 * n2) * 100) / 100;
-
-  define_pos(n1,(res.value < 10))
-  rs_fin=(res.value >= 10) ? (res.value / 10) : (res.value);
-  move_marcador((n1 > 10)?(n1/10):(n1) ,rs_fin);
+  rs_fin = notacao_cientifics(res.value);
+  n1 = notacao_cientifics(n1);
+  n2 = notacao_cientifics(n2);
+  define_pos(n1,(rs_fin >= n1))
+  move_marcador(n1 ,rs_fin);
 
 
 })
@@ -75,20 +75,16 @@ document.getElementById("btn_calculaDivisao").addEventListener('click', x =>{
   var n2 = document.getElementById('numero2').value;
   var res = document.getElementById('resultado');
   var rs_fin= 0;
-  if(n1 < 1){
-    return;
-  }
-  if(n1 == 0 || n2 == 0){
+  if(n2 == 0){
     return;
   }
   if(n1 == null || n2 == null){
     return;
   }
   res.value = Math.round((n1 / n2) * 100) / 100;
-  rs_fin = (res.value >= 10) ? (res.value / 10) : (res.value);
-  n1 = (n1 > 10) ? (n1/10): (n1);
-  n2 = (n2 > 10) ? (n2/10): (n2)
-  // move_marcador((n1 > 10)?(n1/10):(n1) ,rs_fin)
+  rs_fin = notacao_cientifics(res.value);
+  n1 = notacao_cientifics(n1);
+  n2 = notacao_cientifics(n2);
   move_marcador(n1,rs_fin)
   define_pos(rs_fin, (n2 <= n1))
 })
@@ -125,6 +121,26 @@ document.getElementById("btn_calculaRaiz").addEventListener('click', x =>{
   move_marcador(n1);
   setTimeout(()=>{move_marcador_sup(n2)},1750)  
 })
+
+//lidar com o tamanho dos números: range atual: 0 - infinito (noice)
+//multiplicão ]-∞, +∞[ (noice)
+//Divisão ]-∞, +∞[ (nuice)
+//log,pot e raiz pendendentes
+function notacao_cientifics(n){
+  if(n == 0)
+    return 0;
+
+
+  while(!(1 <= n && n < 10)){
+    if(n < 1)
+      n *= 10;
+    else if(n > 10)
+      n /= 10;    
+  }
+
+  return n;
+}
+
 
 // funções de posicionamento da régua
 

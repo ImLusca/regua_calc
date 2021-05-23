@@ -88,9 +88,7 @@ button{
 button:hover{
     background-color: #f33150;
     color: #fff;
-    border-radius: 0px 8px;
-    transform: scale(1.2);
-    
+    border-radius: 0px 8px;    
 }
 .conjunto{display: inline;margin-right: 20px;}
 .conjunto > p {display: contents;}
