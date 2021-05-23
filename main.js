@@ -73,11 +73,11 @@ document.getElementById("btn_calculaRaiz").addEventListener('click', x =>{
 })
 
 //lidar com o tamanho dos números: range atual: 0 - infinito (noice)
-//multiplicão ]-∞, +∞[ (noice)
-//Divisão ]-∞, +∞[ (nuice)
+//multiplicão ]0, +∞[ (noice)
+//Divisão ]0, +∞[ (nuice)
 //log,pot e raiz pendendentes
 function notacao_cientifics(n){
-  if(n == 0)
+  if(n <= 0 )
     return 0;
 
 
