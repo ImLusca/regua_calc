@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;1,100;1,500&display=swap');
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
@@ -6,21 +7,38 @@ input::-webkit-inner-spin-button {
 input[type=number] {
   -moz-appearance: textfield;
 }
-body{overflow-x: hidden;}
+body{overflow-x: hidden;font-family: 'Poppins', sans-serif;}
 *{outline: none;}
 div::selection{background-color: #fff;}
 
 .container{
-    width: 100%;
+    width: 80%;
+    min-width: 768px;
     height: 50vh;
     display: flex; 
     justify-content: center; 
     flex-wrap: wrap;
     position: relative;
+    margin: 0 auto;
+    overflow-x: scroll;
+}
+.container::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+}
+.container::-webkit-scrollbar-thumb {
+    background: #bbbbbbc7;
+    border-radius: 15px;
+    transition: 0.7s;
+}
+.container::-webkit-scrollbar-track{
+    background: #ffffff;
+    border-radius: 0px;
+    box-shadow: inset 7px 10px 12px #f0f0f0;
 }
 
 .regua {
-    width: 80%;
+    width: 100%;
     font-size: 20px;
     display: flex;
     justify-content: space-between;
@@ -30,7 +48,7 @@ div::selection{background-color: #fff;}
 }
 
 #referencia{
-    background-image: url(./src/referencia_regua.jpg);
+    background-image: url(./src/referencia_regua.png);
     height: 100%;
 }
 input{
@@ -39,16 +57,13 @@ input{
 #move {
     width: 100%;
     background-image: url(./src/movel_regua.jpg);
-    height: 26.8571%;
-    top: 41.5%;
-    left: 5px;
+    height: 27.2846153%;
+    top: 38.6153846%;
     cursor: move; /* fallback if grab cursor is unsupported */
     cursor: grab;
     cursor: -moz-grab;
     cursor: -webkit-grab;
 }
-
- /* (Optional) Apply a "closed-hand" cursor during drag operation. */
 #move:active {
     cursor: grabbing;
     cursor: -moz-grabbing;
@@ -63,8 +78,6 @@ input{
     opacity: 0.2;
     background-color: #a9172e;
 }
-
-
 .frame{
     color: #2f2929;
     background: rgba( 255, 255, 255, 0.35 );
@@ -84,16 +97,28 @@ button{
     cursor: pointer;
     transition: .3s;
     float: right;
-    margin: 0 10px;
+    margin: 5px 10px;
 }
 button:hover{
     background-color: #f33150;
     color: #fff;
     border-radius: 0px 8px;    
 }
-.conjunto{display: inline;margin-right: 20px;}
-.conjunto > p {display: contents;}
+.operacoes{
+    display: flex;
+    justify-content: space-between;
+}
+.conjunto{display: inline;margin-right: 20px; width: 23%;}
+.conjunto > p {width: 100%;margin: 0;padding: 0;}
 input{
     border: 2px solid #ec2443;
     border-width: 0px 0px 2px;
+    width: auto;
+}
+.botoes{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    min-width: 217px;
+    width: 23%;
 }

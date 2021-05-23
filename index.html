@@ -9,8 +9,8 @@
 </head>
 <body>
     <div class="container">
-      <div id="marcador" style="left: 233px;"></div>
       <div id="referencia" class="regua">
+        <div id="marcador" style="left: 0;"></div>
         <div class="regua movel" id="move"> </div>
       </div>  
     </div>
@@ -19,25 +19,30 @@
       <div class="operacoes">
 
         <div class="conjunto" style="display: inline;">
-          <p>Primeiro número: </p>
+          <p id="num_1">Primeiro número: </p>
           <input id="numero1" type="number"/>
         </div>
         <div class="conjunto">
-          <p>Segundo número: </p>
+          <p id="num_2">Segundo número: </p>
           <input id="numero2" type="number"/>
         </div>
         <div class="conjunto">
-          <p>resultado</p>
+          <p id="resul">resultado:</p>
           <input id="resultado" />
         </div>
 
-        <button id="btn_calculaLog">Log</button>
-        <button id="btn_calculaDivisao">Dividir</button>
-        <button id="btn_calculaMultiplicacao">Multiplicar</button>
-        <button id="btn_calculaPot">Potência</button>
-        <button id="btn_calculaRaiz">Raiz</button>
+        <div class="botoes">
+          <button id="btn_calculaMultiplicacao">Multiplicar</button>
+          <button id="btn_calculaDivisao">Dividir</button>
+          <button id="btn_calculaLog">Log</button>
+          <button id="btn_calculaRaiz">Raiz</button>
+          <button id="btn_calculaPot">Potência</button>
+        </div>
+        
       </div>
-
+      
+      <hr>
+      <img src="./src/como funciona.jpg" width="100%"/>
 
 
     </div>

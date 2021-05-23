@@ -9,7 +9,11 @@ document.getElementById("btn_calculaMultiplicacao").addEventListener('click', x 
   var n2 = document.getElementById('numero2').value;
   var res = document.getElementById('resultado');
   var rs_fin = 0;
-  
+  document.getElementById("num_1").innerHTML = "multiplicando:"
+  document.getElementById("num_2").innerHTML = "multiplicador:"
+  document.getElementById("resul").innerHTML = "produto:"
+ 
+
   res.value = Math.round((n1 * n2) * 100) / 100;
   rs_fin = notacao_cientifics(res.value);
   n1 = notacao_cientifics(n1);
@@ -25,14 +29,17 @@ document.getElementById("btn_calculaDivisao").addEventListener('click', x =>{
   var n2 = document.getElementById('numero2').value;
   var res = document.getElementById('resultado');
   var rs_fin= 0;
+  document.getElementById("num_1").innerHTML = "dividendo:"
+  document.getElementById("num_2").innerHTML = "divisor:"
+  document.getElementById("resul").innerHTML = "quociente:"
   if(n2 == 0){
     return;
   }
   if(n1 == null || n2 == null){
     return;
   }
-  res.value = Math.round((n1 / n2) * 100) / 100;
-  rs_fin = notacao_cientifics(res.value);
+  res.value = Math.round((n1 / n2) * 1000) / 1000;
+  rs_fin = notacao_cientifics(n1 / n2);
   n1 = notacao_cientifics(n1);
   n2 = notacao_cientifics(n2);
   move_marcador(n1,rs_fin)
@@ -43,6 +50,9 @@ document.getElementById("btn_calculaPot").addEventListener('click', x =>{
   var n1 = document.getElementById('numero1').value;
   var n2 = document.getElementById('numero2').value;
   var res = document.getElementById('resultado');
+  document.getElementById("num_1").innerHTML = "base:"
+  document.getElementById("num_2").innerHTML = "expoente:"
+  document.getElementById("resul").innerHTML = "produto:"
 
   res.value = Math.round(Math.pow(n1,n2) * 100) / 100;
   define_pos(n2);
@@ -55,6 +65,9 @@ document.getElementById("btn_calculaLog").addEventListener('click', x =>{
   var n1 = document.getElementById('numero1');
   var n2 = document.getElementById('numero2');
   var res = document.getElementById('resultado');
+  document.getElementById("num_1").innerHTML = "base:"
+  document.getElementById("num_2").innerHTML = "logaritimando:"
+  document.getElementById("resul").innerHTML = "logaritmo:"
 
   res.value = Math.round((Math.log(n2.value) / Math.log(n1.value)) * 100) / 100;
   define_pos(res.value);
@@ -66,6 +79,10 @@ document.getElementById("btn_calculaRaiz").addEventListener('click', x =>{
   var n1 = document.getElementById('numero1').value;
   var n2 = document.getElementById('numero2').value;
   var res = document.getElementById('resultado');
+  document.getElementById("num_1").innerHTML = "índice:"
+  document.getElementById("num_2").innerHTML = "radicando:"
+  document.getElementById("resul").innerHTML = "raiz:"
+
   res.value = Math.round((Math.pow(n2,(1/n1))) * 100) /100
   define_pos(n1);
   move_marcador(n1);
@@ -99,9 +116,9 @@ function define_pos(n,esquerda = true){
   var referencia = document.getElementById('referencia');
   var movel = document.getElementById('move');
   total = referencia.clientWidth;
-  reset = referencia.offsetLeft;
-  reset = reset + (total * 0.10491071);
-  util = total * 0.83482142
+  // reset = referencia.offsetLeft;
+  // reset = reset + (total * 0.10491071);
+  util = total * 0.8681509387135;
 
   if(esquerda == false){
     n = 10/n;
@@ -114,7 +131,7 @@ function define_pos(n,esquerda = true){
   }
 
   $("#move").animate({    
-      left: _n + 5
+      left: _n
   }, 1000, function(){})
 }
 
@@ -123,18 +140,17 @@ function move_marcador(n, n2=0){
   var referencia = document.getElementById('referencia');
   var movel = document.getElementById('marcador');
   total = referencia.clientWidth;
-  reset = referencia.offsetLeft;
-  reset = reset + (total * 0.10491071);
-  util = total * 0.83482142  
+  reset = total * 0.095795954616 -3 ;
+  util = total * 0.8681509387135; 
   _n = (Math.log10(n) * util);
   _n2 = (Math.log10(n2)*util);
   $("#marcador").animate({
-    left: _n + reset - 3
-  }, 1000, function(){
+    left: _n + reset 
+    }, 1000, function(){
     if(n2 != 0){
       setTimeout(function(){
         $("#marcador").animate({
-        left: _n2 + reset -3
+        left: _n2 + reset
         },800)
       },750);
     }
@@ -147,15 +163,13 @@ function move_marcador_sup(n){
   var referencia = document.getElementById('referencia');
   var movel = document.getElementById('marcador');
   total = referencia.clientWidth;
-  reset = referencia.offsetLeft;
-  reset = reset + (total * 0.10491071);
-  util = total * 0.83482142;
+  reset = total * 0.095795954616 -3 ;
+  util = total * 0.8681509387135; 
   _n = Math.log(n) / Math.log(Math.SQRT2);
   _n = (Math.log10(_n) * util);
   $("#marcador").animate({
-    left:  _n + reset - 5
-  }, 1000, function(){})
-  // movel.style.left = (_n + reset - 3) + "px";  
+    left:  _n + reset
+  }, 1000, function(){}) 
 }
 
 // funções para debug
@@ -164,11 +178,9 @@ var total = 0, util = 0,reset =0, _n ;
 var referencia = document.getElementById('referencia');
   var movel = document.getElementById('move');
   total = referencia.clientWidth;
-  reset = referencia.offsetLeft;
-  reset = reset + (total * 0.10491071);
-  util = total * 0.83482142
+  util = total * 0.8681509387135;
 
-  _n = movel.style.left.replace("px","") -3
+  _n = movel.style.left.replace("px","")
   _n = _n/util;
   _n = Math.pow(10,_n);
   return _n;
