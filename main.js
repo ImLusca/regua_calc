@@ -101,7 +101,7 @@ function notacao_cientifics(n){
   while(!(1 <= n && n < 10)){
     if(n < 1)
       n *= 10;
-    else if(n > 10)
+    else if(n >= 10)
       n /= 10;    
   }
 
