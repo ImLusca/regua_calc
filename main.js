@@ -1,7 +1,7 @@
 
 ArrastaElemento(document.getElementById("move"));
 ArrastaElemento(document.getElementById("marcador"));
-
+toastr.options = {"closeButton": true,  "progressBar": true,  "positionClass": "toast-bottom-center",  "preventDuplicates": true};
 //funções matemáticas --> simplificar para uma única função usando switch case se for viável
 //transformar as variáveis n1,n2,res em globais 
 document.getElementById("btn_calculaMultiplicacao").addEventListener('click', x =>{
@@ -18,10 +18,8 @@ document.getElementById("btn_calculaMultiplicacao").addEventListener('click', x 
   rs_fin = notacao_cientifics(res.value);
   n1 = notacao_cientifics(n1);
   n2 = notacao_cientifics(n2);
-  define_pos(n1,(rs_fin >= n1))
+  define_pos(n1,(rs_fin >= n1));
   move_marcador(n1 ,rs_fin);
-
-
 })
 
 document.getElementById("btn_calculaDivisao").addEventListener('click', x =>{
@@ -55,23 +53,34 @@ document.getElementById("btn_calculaPot").addEventListener('click', x =>{
   document.getElementById("resul").innerHTML = "produto:"
 
   res.value = Math.round(Math.pow(n1,n2) * 100) / 100;
+
+  if(!(1.4 < res.value && res.value <= 32) || !(1 <= n2 && n2 <=10)){
+    toastr.info("O resultado não pôde ser representado neste modelo");
+    return;
+  }
+
   define_pos(n2);
   move_marcador(n2);
   setTimeout(() =>{move_marcador_sup(res.value)},1750);
-  
+
 })
 
 document.getElementById("btn_calculaLog").addEventListener('click', x =>{
-  var n1 = document.getElementById('numero1');
-  var n2 = document.getElementById('numero2');
+  var n1 = document.getElementById('numero1').value;
+  var n2 = document.getElementById('numero2').value;
   var res = document.getElementById('resultado');
   document.getElementById("num_1").innerHTML = "base:"
   document.getElementById("num_2").innerHTML = "logaritimando:"
   document.getElementById("resul").innerHTML = "logaritmo:"
 
-  res.value = Math.round((Math.log(n2.value) / Math.log(n1.value)) * 100) / 100;
+  res.value = Math.round((Math.log(n2) / Math.log(n1)) * 100) / 100;
+  if(!(1.4 < n2  && n2 <= 32) || !(1 < res.value && res.value < 10) ){
+    toastr.info("A operação não pôde ser representado neste modelo");
+    return;
+  }
+
   define_pos(res.value);
-  move_marcador_sup(n2.value);
+  move_marcador_sup(n2);
   setTimeout(()=>{move_marcador(res.value)},1750)
 })
 
@@ -84,19 +93,21 @@ document.getElementById("btn_calculaRaiz").addEventListener('click', x =>{
   document.getElementById("resul").innerHTML = "raiz:"
 
   res.value = Math.round((Math.pow(n2,(1/n1))) * 100) /100
+  if( !(1.4 < res.value  && res.value <= 32) || !(1 < n1 && n1 < 10)){
+    toastr.info("A operação não pôde ser representado neste modelo");
+    return;
+  }
   define_pos(n1);
   move_marcador(n1);
   setTimeout(()=>{move_marcador_sup(n2)},1750)  
 })
 
-//lidar com o tamanho dos números: range atual: 0 - infinito (noice)
-//multiplicão ]0, +∞[ (noice)
-//Divisão ]0, +∞[ (nuice)
-//log,pot e raiz pendendentes
-function notacao_cientifics(n){
-  if(n <= 0 )
-    return 0;
 
+function notacao_cientifics(n){
+  n = Math.abs(n);
+  if(n == 0 ){
+    return 0;
+  }
 
   while(!(1 <= n && n < 10)){
     if(n < 1)
