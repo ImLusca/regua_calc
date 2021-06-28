@@ -7,7 +7,7 @@ input::-webkit-inner-spin-button {
 input[type=number] {
   -moz-appearance: textfield;
 }
-body{overflow-x: hidden;font-family: 'Poppins', sans-serif;}
+body{overflow-x: hidden;font-family: 'Poppins', sans-serif;margin: 0;}
 *{outline: none;}
 div::selection{background-color: #fff;}
 
