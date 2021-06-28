@@ -122,3 +122,28 @@ input{
     min-width: 217px;
     width: 23%;
 }
+#video{
+    background: #c5102b;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    height: 60vh;
+}
+#video .apresentacao{
+    width: 100%;
+    text-align:  center;
+    font-size: 1.2rem;
+    color: #fff;
+    font-weight: 600;
+}
+#video iframe{ 
+    width: 34%;
+    height: 64%;
+    border: 5px solid white;
+    margin-top: -5rem;
+    box-shadow: 13px 13px 17px rgba(0,0,0,0.6);;
+}
+#video .apresentacao p {
+    user-select: none;
+}
