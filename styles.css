@@ -7,12 +7,25 @@ input::-webkit-inner-spin-button {
 input[type=number] {
   -moz-appearance: textfield;
 }
-body{overflow-x: hidden;font-family: 'Poppins', sans-serif;margin: 0;}
+body{overflow-x: hidden;font-family: 'Poppins', sans-serif;margin: 0; color: #636363; }
 *{outline: none;}
 div::selection{background-color: #fff;}
+ul{margin: 0; padding: 0;user-select: none;}
+p{margin: 0!important;}
+.highlight{color: #f84561;}
+h1,h2,h3,h4{color:#000}
+p::selection{color: #fff;background-color: #f84561;}
+.highlight::selection{color: #fff;background-color: #f84561;}
 
-.container{
-    width: 80%;
+#sobre{
+    width: 80vw;
+    min-width: 768px;
+    display: flex; 
+    justify-content: center; 
+    flex-wrap: wrap;
+}
+
+#frRegua{
     min-width: 768px;
     height: 50vh;
     display: flex; 
@@ -22,16 +35,16 @@ div::selection{background-color: #fff;}
     margin: 0 auto;
     overflow-x: scroll;
 }
-.container::-webkit-scrollbar {
+#frRegua::-webkit-scrollbar {
     width: 5px;
     height: 5px;
 }
-.container::-webkit-scrollbar-thumb {
+#frRegua::-webkit-scrollbar-thumb {
     background: #bbbbbbc7;
     border-radius: 15px;
     transition: 0.7s;
 }
-.container::-webkit-scrollbar-track{
+#frRegua::-webkit-scrollbar-track{
     background: #ffffff;
     border-radius: 0px;
     box-shadow: inset 7px 10px 12px #f0f0f0;
@@ -84,7 +97,6 @@ input{
     box-shadow: 6px 6px 1px 0 rgb(169 23 46 / 57%);
     border-radius: 10px;
     border: 1px solid rgb(243 49 80);
-    width: 78%;
     padding: 20px;
     margin: 25px auto;
 }
@@ -108,8 +120,7 @@ button:hover{
     display: flex;
     justify-content: space-between;
 }
-.conjunto{display: inline;margin-right: 20px; width: 23%;}
-.conjunto > p {width: 100%;margin: 0;padding: 0;}
+
 input{
     border: 2px solid #ec2443;
     border-width: 0px 0px 2px;
@@ -138,7 +149,7 @@ input{
     font-weight: 600;
 }
 #video iframe{ 
-    width: 34%;
+    width: 35%;
     height: 64%;
     border: 5px solid white;
     margin-top: -5rem;
@@ -146,4 +157,11 @@ input{
 }
 #video .apresentacao p {
     user-select: none;
+}
+footer ul li{
+    display: inline;
+    padding-right: 0.5rem;
+}
+footer ul li:nth-child(1){
+    padding-right: 3rem;
 }
