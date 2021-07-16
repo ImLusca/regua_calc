@@ -135,10 +135,6 @@ input{
 }
 #video{
     background: #c5102b;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
     height: 60vh;
 }
 #video .apresentacao{
@@ -149,15 +145,33 @@ input{
     font-weight: 600;
 }
 #video iframe{ 
-    width: 35%;
-    height: 64%;
     border: 5px solid white;
-    margin-top: -5rem;
-    box-shadow: 13px 13px 17px rgba(0,0,0,0.6);;
+    box-shadow: 13px 13px 17px rgba(0,0,0,0.6);
+
 }
 #video .apresentacao p {
     user-select: none;
 }
+@media(max-width:100px){
+    #video iframe{
+    width: 84vw;
+    height: 31vh;
+    
+    }
+}
+@media(min-width: 768px){    
+    #video iframe{width: 76vw; height: 49vh;}
+}
+@media(min-width: 1024px){    
+    #video iframe{width: 55vw; height: 47vh;}
+}
+
+@media(min-width: 1080px){
+    #video{ height: 63vh;}
+    #video iframe{width: 41vw; height: 50vh;}
+}
+
+
 footer ul li{
     display: inline;
     padding-right: 0.5rem;
